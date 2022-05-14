@@ -5,9 +5,13 @@
 # Autor:       Kuratli Elia
 # Date:        09.05.22
 #
-# Version:     2022.01 / 09.05.22 / elia kuratli
+# Version:     2022.01 / 09.05.22 / Elia Kuratli
 #                                 Script created
-#                                 Base structure, MUI variables, selector menus
+#                                 Base structure, Menu, Variables
+#
+#              2022.02 / 10.05.22 / Elia Kuratli
+#                                 Script created
+#                                 Base structure, Menu, Variables
 #
 #  
 #
@@ -35,47 +39,47 @@ Function Set-MenuLanguage {
     # Prepare German text blocks
     If ($MenuLanguage -eq "D"){
         $ML01 = "Deutsch"
-        $ML02 = ""
-        $ML03 = ""
-        $ML04 = ""
-        $ML05 = ""
-        $ML06 = ""
-        $ML07 = ""
-        $ML08 = ""
-        $ML09 = ""
-        $ML10 = ""
-        $ML11 = ""
-        $ML12 = ""
-        $ML13 = ""
-        $ML14 = ""
-        $ML15 = ""
-        $ML16 = ""
-        $ML17 = ""
-        $ML18 = ""
-        $ML19 = ""
+        $ML02 = "Funktionsauswahl"
+        $ML03 = "Wähle deine Funktion"
+        $ML04 = "Klassen Verzeichnisse"
+        $ML05 = "Applikation schliessen"
+        $ML06 = "Home Verzeichnisse Schüler"
+        $ML07 = "Wähle deine Auswahl"
+        $ML08 = "Ungültige Eingabe"
+        $ML09 = "Wähle deine Auswahl"
+        $ML10 = "Erstelle User Accounts"
+        $ML11 = "Deaktiviere User Accounts"
+        $ML12 = "AD Gruppen erstellen"
+        $ML13 = "AD Gruppen löschen"
+        $ML14 = "Klassen Verzeichnisse"
+        $ML15 = "Klassen Verzeichnisse erstellen"
+        $ML16 = "Klassen Verzeichnisse umbenennen"
+        $ML17 = "Home Ordner"
+        $ML18 = "Home Ordner erstellen"
+        $ML19 = "Home Ordner umbenennen"
         $ML20 = ""
     }
     # Prepare English text blocks
     ElseIf ($MenuLanguage -eq "E"){
         $ML01 = "English"
-        $ML02 = ""
-        $ML03 = ""
-        $ML04 = ""
-        $ML05 = ""
-        $ML06 = ""
-        $ML07 = ""
-        $ML08 = ""
-        $ML09 = ""
-        $ML10 = ""
-        $ML11 = ""
-        $ML12 = ""
-        $ML13 = ""
-        $ML14 = ""
-        $ML15 = ""
-        $ML16 = ""
-        $ML17 = ""
-        $ML18 = ""
-        $ML19 = ""
+        $ML02 = "Chose function"
+        $ML03 = "What function you want to use?"
+        $ML04 = "Class folders"
+        $ML05 = "Close Menu"
+        $ML06 = "Student Home folders"
+        $ML07 = "Chose your selection"
+        $ML08 = "Invalid Selection"
+        $ML09 = "Chose one of the selections"
+        $ML10 = "Create User Accounts"
+        $ML11 = "Deactivate User accounts"
+        $ML12 = "Create AD groups"
+        $ML13 = "Delete AD groups"
+        $ML14 = "Class Folders"
+        $ML15 = "Create Class folders"
+        $ML16 = "Rename Class folders"
+        $ML17 = "Home Folders"
+        $ML18 = "Create Home Folders"
+        $ML19 = "Rename Home Folders"
         $ML20 = ""
     }
     Else {
@@ -85,24 +89,24 @@ Function Set-MenuLanguage {
 
    # Configure all the variables with the correct text blocks
     Set-Variable -Name OutChosenLanguage -Value $ML01 -Scope global
-    Set-Variable -Name  -Value $ML02 -Scope global   
-    Set-Variable -Name  -Value $ML03 -Scope global   
-    Set-Variable -Name  -Value $ML04 -Scope global   
-    Set-Variable -Name  -Value $ML05 -Scope global   
-    Set-Variable -Name  -Value $ML06 -Scope global   
-    Set-Variable -Name  -Value $ML07 -Scope global   
-    Set-Variable -Name  -Value $ML08 -Scope global   
-    Set-Variable -Name  -Value $ML09 -Scope global   
-    Set-Variable -Name  -Value $ML10 -Scope global   
-    Set-Variable -Name  -Value $ML11 -Scope global
-    Set-Variable -Name  -Value $ML12 -Scope global   
-    Set-Variable -Name  -Value $ML13 -Scope global   
-    Set-Variable -Name  -Value $ML14 -Scope global   
-    Set-Variable -Name  -Value $ML15 -Scope global   
-    Set-Variable -Name  -Value $ML16 -Scope global   
-    Set-Variable -Name  -Value $ML17 -Scope global   
-    Set-Variable -Name  -Value $ML18 -Scope global   
-    Set-Variable -Name  -Value $ML19 -Scope global   
+    Set-Variable -Name StarterMenuTitle -Value $ML02 -Scope global   
+    Set-Variable -Name StarterMenuText -Value $ML03 -Scope global   
+    Set-Variable -Name ClassFolders -Value $ML04 -Scope global   
+    Set-Variable -Name ExitMenu -Value $ML05 -Scope global   
+    Set-Variable -Name HomeFolder -Value $ML06 -Scope global   
+    Set-Variable -Name OutChooseSelection -Value $ML07 -Scope global   
+    Set-Variable -Name OutInvalidSelection -Value $ML08 -Scope global   
+    Set-Variable -Name ChoseOption -Value $ML09 -Scope global   
+    Set-Variable -Name CreateAccounts -Value $ML10 -Scope global   
+    Set-Variable -Name DeactivateAccounts -Value $ML11 -Scope global
+    Set-Variable -Name CreateGroup -Value $ML12 -Scope global   
+    Set-Variable -Name DeleteGroup -Value $ML13 -Scope global  
+    Set-Variable -Name ClassFolderTitle -Value $ML14 -Scope global   
+    Set-Variable -Name CreateClassFolder -Value $ML15 -Scope global   
+    Set-Variable -Name RenameClassFolder -Value $ML16 -Scope global   
+    Set-Variable -Name HomeFolderTitle -Value $ML17 -Scope global   
+    Set-Variable -Name CreateHomeFolder -Value $ML18 -Scope global   
+    Set-Variable -Name RenameHomeFolder -Value $ML19 -Scope global   
     Set-Variable -Name  -Value $ML20 -Scope global      
 
 }
@@ -115,30 +119,27 @@ Function Show-StarterMenu {
     Write-Host " "
     Write-Host "**************************************************************************"
     Write-Host "                                                                         "
-    Write-Host "            "$
+    Write-Host "            "$StarterMenuTitle"											 "
     Write-Host "                                                                         "
-    Write-Host "            "$":"
+    Write-Host "            "$StarterMenuText"":"										 "
     Write-Host "                                                                         "
-    Write-Host "                       [1]"$
-    Write-Host "                       [2]"$
-    Write-Host "                       [3]"$
+    Write-Host "                       [1] AD-Accounts									 "
+    Write-Host "                       [2] AD-Groups									 "
+    Write-Host "                       [3]"$ClassFolders"								 "
+	Write-Host "                       [4]"$HomeFolder"									 "
     Write-Host "                                                                         "
-    Write-Host "                       [S]"$
-    Write-Host "                                                                         "
-    Write-Host "                       [X]"$
+    Write-Host "                       [X]"$ExitMenu"									 "
     Write-Host "                                                                         "
     Write-Host "**************************************************************************"
-    $MenuSelection = Read-Host $OutChooseSelection
+    
+	$MenuSelection = Read-Host $OutChooseSelection
 
         # Plausibility check
         # If an option is selected, the variable will be set
         # If X is selected, the guide will end the function
         # If something else was entered, the UI selection starts again
-        If ($MenuSelection -in 1..3) {
+        If ($MenuSelection -in 1..4) {
             $SelectedOption = "$MenuSelection"
-        }
-        ElseIf ($MenuSelection -eq "S") {
-            Set-LanguageSelection
         }
         ElseIf ($MenuSelection -eq "X") {
             End-LanguageSelection
@@ -151,370 +152,190 @@ Function Show-StarterMenu {
         }
         # Open the selected option
         If ($SelectedOption -eq 1) {
-            Choose-SystemLanguage
+            Choose-AD-Accounts
         }
         ElseIf ($SelectedOption -eq 2) {
-           Choose-RegionalSettings
+           Choose-AD-Groups
         }
         ElseIf ($SelectedOption -eq 3) {
-           Choose-AppLanguage
+           Choose-ClassFolders
+        }
+		ElseIf ($SelectedOption -eq 4) {
+           Choose-HomeFolder
         }
 }
 
 ## Function Choose-SystemLanguage
 # Shows the options to choose a language for the user interface (UI)
-Function Choose-SystemLanguage {
+Function Choose-AD-Accounts {
     cls
 
     Write-Host " "
     Write-Host "**************************************************************************"
     Write-Host "                                                                         "
-    Write-Host "            "$OutTitelSystemLanguage
-    Write-Host "            "$OutAvailableSystemLanguages ":"
+    Write-Host "             AD-Accounts"
+    Write-Host "            "$ChoseOption ":"
     Write-Host "                                                                         "
-    Write-Host "                       [1]"$OutLangDECH
-    Write-Host "                       [2]"$OutLangDEDE
-    Write-Host "                       [3]"$OutLangENUS
-    Write-Host "                       [4]"$OutLangENUK
-    Write-Host "                       [5]"$OutLangCHFR
-    Write-Host "                       [6]"$OutLangFRFR
-    Write-Host "                       [7]"$OutLangITIT
-    Write-Host "                       [8]"$OutLangPLPL
-    Write-Host "                       [9]"$OutLangRURU
-    Write-Host "                       [10]"$OutLangESES
-    Write-Host "                       [11]"$OutLangHUHU
+    Write-Host "                       [1]"$CreateAccounts
+    Write-Host "                       [2]"$DeactivateAccounts
     Write-Host "                                                                         "
-    Write-Host "                       [X]"$OutExitSystemLanguageSelector
+    Write-Host "                       [X]"$ExitMenu
     Write-Host "                                                                         "
     Write-Host "**************************************************************************"
-    $UISelection = Read-Host $OutChooseSystemLanguage
+    $UISelection = Read-Host $OutChooseSelection
 
         # Plausibility check
         # If a language is selected, the variable will be set
         # If X is selected, the guide will end the function
         # If something else was entered, the UI selection starts again
-        If ($UISelection -in 1..11) {
+        If ($UISelection -in 1..2) {
             If     ($UISelection -eq 1) {
-                Set-Variable -Name UILanguage -Value "de-CH" -Scope global
+                foreach ($User in $Users) {
+					#variable für statement
+					Test-ADUser -Username $User
+  }
             }
             ElseIf ($UISelection -eq 2) {
-                Set-Variable -Name UILanguage -Value "de-DE" -Scope global
-            }
-            ElseIf ($UISelection -eq 3) {
-                Set-Variable -Name UILanguage -Value "en-US" -Scope global
-            }
-            ElseIf ($UISelection -eq 4) {
-                Set-Variable -Name UILanguage -Value "en-GB" -Scope global
-            }
-            ElseIf ($UISelection -eq 5) {
-                Set-Variable -Name UILanguage -Value "fr-FR" -Scope global
-            }
-            ElseIf ($UISelection -eq 6) {
-                Set-Variable -Name UILanguage -Value "fr-CH" -Scope global
-            }
-            ElseIf ($UISelection -eq 7) {
-                Set-Variable -Name UILanguage -Value "it-IT" -Scope global
-            }
-            ElseIf ($UISelection -eq 8) {
-                Set-Variable -Name UILanguage -Value "pl-PL" -Scope global
-            }
-            ElseIf ($UISelection -eq 9) {
-                Set-Variable -Name UILanguage -Value "ru-RU" -Scope global
-            }
-            ElseIf ($UISelection -eq 10) {
-                Set-Variable -Name UILanguage -Value "es-ES" -Scope global
-            }
-            ElseIf ($UISelection -eq 11) {
-                Set-Variable -Name UILanguage -Value "hu-HU" -Scope global
-            }
+                Deactivate-AD-Accounts           }
         }
         ElseIf ($UISelection -eq "X") {
-            #Show-SelectorMenu
             Return
         }
         Else {
             Write-Host " "
             Write-Host "$OutInvalidSelection"
             Start-Sleep -Seconds 1
-            Choose-SystemLanguage
+            Choose-AD-Accounts
         }
 
 }
+
+
 
 
 ## Function Choose-RegionalSettings
 # Shows the options to choose the regional settings
-Function Choose-RegionalSettings {
+Function Choose-AD-Groups {
     cls
 
     Write-Host " "
     Write-Host "**************************************************************************"
     Write-Host "                                                                         "
-    Write-Host "            "$OutTitelRegionalSettings
-    Write-Host "            "$OutAvailableRegionalSettings ":"
+    Write-Host "            "AD-Groups
+    Write-Host "            "$ChoseOption ":"
     Write-Host "                                                                         "
-    Write-Host "                       [1]"$OutLangDECH
-    Write-Host "                       [2]"$OutLangDEDE
-    Write-Host "                       [3]"$OutLangENUS
-    Write-Host "                       [4]"$OutLangENUK
-    Write-Host "                       [5]"$OutLangARDZ
-    Write-Host "                       [6]"$OutLangDADK
-    Write-Host "                       [7]"$OutLangCHFR
-    Write-Host "                       [8]"$OutLangFRFR
-    Write-Host "                       [9]"$OutLangITIT
-    Write-Host "                       [10]"$OutLangNLNL
-    Write-Host "                       [11]"$OutLangNNNO
-    Write-Host "                       [12]"$OutLangPLPL
-    Write-Host "                       [13]"$OutLangRURU
-    Write-Host "                       [14]"$OutLangSVSE
-    Write-Host "                       [15]"$OutLangESES
-    Write-Host "                       [16]"$OutLangCSCZ
-    Write-Host "                       [17]"$OutLangHUHU
+    Write-Host "                       [1]"$CreateGroup
+    Write-Host "                       [2]"$DeleteGroup
     Write-Host "                                                                         "
-    Write-Host "                       [X]"$OutExitRegionalSettings
+    Write-Host "                       [X]"$ExitMenu
     Write-Host "                                                                         "
     Write-Host "**************************************************************************"
-    $RegionSelection = Read-Host $OutChooseRegionalSetting
+    $RegionSelection = Read-Host $OutChooseSelection
 
         # Plausibility check
         # If a language is selected, the variable will be set
         # If X is selected, the guide will end the function
         # If something else was entered, the UI selection starts again
-        If ($RegionSelection -in 1..16) {
+        If ($RegionSelection -in 1..2) {
             If ($RegionSelection -eq 1) {
-                Set-Variable -Name RegionSetCulture -Value "de-CH" -Scope global
-                Set-Variable -Name RegionSetGeoID -Value "223" -Scope global
+
             }
             ElseIf ($RegionSelection -eq 2) {
-                Set-Variable -Name RegionSetCulture -Value "de-DE" -Scope global
-                Set-Variable -Name RegionSetGeoID -Value "94" -Scope global
+
             }
-            ElseIf ($RegionSelection -eq 3) {
-                Set-Variable -Name RegionSetCulture -Value "en-US" -Scope global
-                Set-Variable -Name RegionSetGeoID -Value "244" -Scope global
-            }
-            ElseIf ($RegionSelection -eq 4) {
-                Set-Variable -Name RegionSetCulture -Value "en-GB" -Scope global
-                Set-Variable -Name RegionSetGeoID -Value "242" -Scope global
-            }
-            ElseIf ($RegionSelection -eq 5) {
-                Set-Variable -Name RegionSetCulture -Value "ar-DZ" -Scope global
-                Set-Variable -Name RegionSetGeoID -Value "4" -Scope global
-            }
-            ElseIf ($RegionSelection -eq 6) {
-                Set-Variable -Name RegionSetCulture -Value "da-DK" -Scope global
-                Set-Variable -Name RegionSetGeoID -Value "61" -Scope global
-            }
-            ElseIf ($RegionSelection -eq 7) {
-                Set-Variable -Name RegionSetCulture -Value "fr-CH" -Scope global
-                Set-Variable -Name RegionSetGeoID -Value "223" -Scope global
-            }
-            ElseIf ($RegionSelection -eq 8) {
-                Set-Variable -Name RegionSetCulture -Value "fr-FR" -Scope global
-                Set-Variable -Name RegionSetGeoID -Value "84" -Scope global
-            }
-            ElseIf ($RegionSelection -eq 9) {
-                Set-Variable -Name RegionSetCulture -Value "it-IT" -Scope global
-                Set-Variable -Name RegionSetGeoID -Value "118" -Scope global
-            }
-            ElseIf ($RegionSelection -eq 10) {
-                Set-Variable -Name RegionSetCulture -Value "nl-NL" -Scope global
-                Set-Variable -Name RegionSetGeoID -Value "176" -Scope global
-            }
-            ElseIf ($RegionSelection -eq 11) {
-                Set-Variable -Name RegionSetCulture -Value "nn-NO" -Scope global
-                Set-Variable -Name RegionSetGeoID -Value "177" -Scope global
-            }
-            ElseIf ($RegionSelection -eq 12) {
-                Set-Variable -Name RegionSetCulture -Value "pl-PL" -Scope global
-                Set-Variable -Name RegionSetGeoID -Value "191" -Scope global
-            }
-            ElseIf ($RegionSelection -eq 13) {
-                Set-Variable -Name RegionSetCulture -Value "ru-RU" -Scope global
-                Set-Variable -Name RegionSetGeoID -Value "203" -Scope global
-            }
-            ElseIf ($RegionSelection -eq 14) {
-                Set-Variable -Name RegionSetCulture -Value "sv-SE" -Scope global
-                Set-Variable -Name RegionSetGeoID -Value "221" -Scope global
-            }
-            ElseIf ($RegionSelection -eq 15) {
-                Set-Variable -Name RegionSetCulture -Value "es-ES" -Scope global
-                Set-Variable -Name RegionSetGeoID -Value "217" -Scope global
-            }
-            ElseIf ($RegionSelection -eq 16) {
-                Set-Variable -Name RegionSetCulture -Value "cs-CZ" -Scope global
-                Set-Variable -Name RegionSetGeoID -Value "75" -Scope global
-            }
-            ElseIf ($RegionSelection -eq 17) {
-                Set-Variable -Name RegionSetCulture -Value "hu-HU" -Scope global
-                Set-Variable -Name RegionSetGeoID -Value "109" -Scope global
-            }
-            #$Region = "$RegionSelection"
         }
         ElseIf ($RegionSelection -eq "X") {
-            #Show-SelectorMenu
             Return
         }
         Else {
             Write-Host " "
             Write-Host "$OutInvalidSelection"
             Start-Sleep -Seconds 1
-            Choose-RegionalSettings
+            Choose-AD-Groups
         }
-
-        #Set-Variable -Name RegionSet -Value $Region -Scope global
 
 }
 
-
-## Function Choose-AppLanguage
-# Shows the options to choose a language for the applications (UI)
-Function Choose-AppLanguage {
+Function Choose-ClassFolders {
     cls
 
     Write-Host " "
-    Write-Host "*************************************************************************"
+    Write-Host "**************************************************************************"
     Write-Host "                                                                         "
-    Write-Host "                 Menu Language / Menü Sprache                            "
+    Write-Host "            "$ClassFolderTitle
+    Write-Host "            "$ChoseOption ":"
     Write-Host "                                                                         "
-    Write-Host "            Available Languages / verfügbare Sprache                     "
+    Write-Host "                       [1]"$CreateClassFolder
+    Write-Host "                       [2]"$RenameClassFolder
     Write-Host "                                                                         "
-    Write-Host "                       [1] Deutsch                                       "
-    Write-Host "                       [2] English                                       "
+    Write-Host "                       [X]"$ExitMenu
     Write-Host "                                                                         "
-    Write-Host "                       [X] Verlassen / Exit                              "
-    Write-Host "                                                                         "
-    Write-Host "                                                                         "  
-    Write-Host "                                                                         "
-    Write-Host "*************************************************************************"
-    $AppUISelection = Read-Host $OutChooseAppLanguage
+    Write-Host "**************************************************************************"
+    $UISelection = Read-Host $OutChooseSelection
 
         # Plausibility check
         # If a language is selected, the variable will be set
         # If X is selected, the guide will end the function
         # If something else was entered, the UI selection starts again
-        If ($AppUISelection -in 1..2) {
-            If ($AppUISelection -eq 1) {
-                Set-Variable -Name AppLanguage -Value "DE" -Scope global
-                Set-Variable -Name AppLanguageNumber -Value 49 -Scope global
+        If ($UISelection -in 1..2) {
+            If ($UISelection -eq 1) {
+				
             }
-            ElseIf ($AppUISelection -eq 2) {
-                Set-Variable -Name AppLanguage -Value "EN" -Scope global
-                Set-Variable -Name AppLanguageNumber -Value 44 -Scope global
+            ElseIf ($UISelection -eq 2) {
+				
             }
         }
-        ElseIf ($AppUISelection -eq "X") {
-            #Show-SelectorMenu
+        ElseIf ($UISelection -eq "X") {
             Return
         }
         Else {
             Write-Host " "
             Write-Host "$OutInvalidSelection"
             Start-Sleep -Seconds 1
-            Choose-AppLanguage
+            Choose-ClassFolders
         }
 
 }
 
-## Function Set-LanguageSelection
-# Set all the choosen settings and log off the user from the session to save the settings
-Function Set-LanguageSelection {
+Function Choose-HomeFolder {
 
     cls
 
     Write-Host " "
     Write-Host "**************************************************************************"
     Write-Host "                                                                         "
-    Write-Host "            "$OutTitleSetSelection
-    Write-Host "            "$OutSelectionOutput ":"
-    Write-Host "                " $OutSelectSystemLanguage "= " $UILanguage
-    Write-Host "                " $OutSelectRegionalSettings " = " $RegionSetCulture
-    Write-Host "                " $OutSelectAppLanguage " = " $AppLanguage
+    Write-Host "            "$HomeFolderTitle
+    Write-Host "            "$ChoseOption ":"
     Write-Host "                                                                         "
-    Write-Host "                       [S]"$OutSelectionSetLogoff
+    Write-Host "                       [1]"$CreateHomeFolder
+    Write-Host "                       [2]"$RenameHomeFolder
     Write-Host "                                                                         "
-    Write-Host "                       [X]"$OutSelectionCancel
+    Write-Host "                       [X]"$ExitMenu
     Write-Host "                                                                         "
     Write-Host "**************************************************************************"
-    $SetSelection = Read-Host $OutChooseSetSelection
+    $SetSelection = Read-Host $OutChooseSelection
 
         # Plausibility check
         # If a language is selected, the variable will be set
         # If X is selected, the guide will end the function
         # If something else was entered, the UI selection starts again
-        If ($SetSelection -eq "S") {
-            if ($RegionSetCulture) {
-                Set-Culture $RegionSetCulture #Set Culture  
+        If ($SetSelection -in 1..2) {
+            If ($SetSelection -eq 1) {
+				
             }
-            if ($regionSetGeoID) {
-                Set-WinHomeLocation -GeoId $regionSetGeoID # Set Home Location
+            ElseIf ($SetSelection -eq 2) {
+				
             }
-            if ($UILanguage) {
-                Set-WinUserLanguageList $UILanguage -force # Set Language
-            }
-            
-            Add-Type -AssemblyName System.Windows.Forms
-            Set-Variable -Name exitApplication -Value "exit" -Scope global
-
-
-            if (Test-Path env:LM_LICENSE_FILE) # Change E3 Language
-                {
-                    if (Test-Path "HKCU:\Software\Zuken")
-                    {
-                        $regPath = “HKCU:\Software\Zuken\E3.Series\21.0”
-                        $Name = “Language”
-                        $value = "$AppLanguageNumber"
-
-                        New-ItemProperty -Path $regPath -Name $name -Value $value -PropertyType String -Force | Out-Null
-                    }
-
-                    if (Test-Path "HKCU:\Software\Zuken")
-                    {
-                        $regPath1 = “HKCU:\Software\Zuken\E3.CopyDatabaseEntries\21.0”
-                        $Name1 = “Language”
-                        $value1 = "$AppLanguageNumber"
-
-                        if (-Not (Test-Path $regPath1))
-                        {
-                            New-Item -Path $regPath1 -Force | Out-Null
-                        }
-                        New-ItemProperty -Path $regPath1 -Name $name1 -Value $value1 -PropertyType String -Force | Out-Null
-                    }
-
-                    if (Test-Path "HKCU:\Software\Zuken")
-                    {
-                        $regPath2 = “HKCU:\Software\Zuken\E3.UpdateSubCircuits\13.0”
-                        $Name2 = “Language”
-                        $value2 = "$AppLanguageNumber"
-
- 
-                        if (-Not (Test-Path $regPath2))
-                        {
-                            New-Item -Path $regPath2 -Force | Out-Null
-                        }
-                        New-ItemProperty -Path $regPath2 -Name $name2 -Value $value2 -PropertyType String -Force | Out-Null
-                    }            
-                }                
-
-            #   logoff user session
-            Write-Host " "
-            Read-Host "$OutLastConformation"
-            Shutdown -l
-            
-
         }
         ElseIf ($SetSelection -eq "X") {
-            #Show-SelectorMenu
             Return
         }
         Else {
             Write-Host " "
             Write-Host "$OutInvalidSelection"
-            Start-Sleep -Seconds 5
-            Set-LanguageSelection
+            Start-Sleep -Seconds 1
+            Choose-ClassFolders
         }
-
-
 
 }
 
@@ -536,6 +357,13 @@ Function End-LanguageSelection {
 # =============================================================================================================
 # ==================================          MAIN SCRIPT             =========================================
 # =============================================================================================================
+
+
+Set-Location C:\temp\m122
+
+Import-Module ActiveDirectory
+
+$Users = Import-Csv -Delimiter ";" -Path ".\schueler.csv"
 
 cls
 
