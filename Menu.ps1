@@ -1,6 +1,6 @@
 ###############################################################
 #
-# Scriptname:  Citrix_Language_ML.ps1
+# Scriptname:  Menu.ps1
 #
 # Autor:       Kuratli Elia
 # Date:        09.05.22
@@ -8,17 +8,13 @@
 # Version:     2022.01 / 09.05.22 / Elia Kuratli
 #                                 Script created
 #                                 Base structure, Menu, Variables
-#
-#              2022.02 / 10.05.22 / Elia Kuratli
-#                                 Script created
-#                                 Base structure, Menu, Variables
+# Version:     2022.02 / 14.05.22 / Elia Kuratli
+#                                 Changed global variables
 #
 #  
 #
-# Description: Gives the user a guided menu to set the
-#              UI/App language and the regional settings
-#              Based on the several dedicated language scripts
-#              The wizard is build with a MUI in DE/EN
+# Description: Terminal Menu with different options to create new AD Users, 
+# Home Folders, Class Folders and Home directories.
 #
 ###############################################################
 
@@ -33,8 +29,6 @@ Function Set-MenuLanguage {
     param (
         [string]$MenuLanguage
     )
-
-    #$ML = @()
 
     # Prepare German text blocks
     If ($MenuLanguage -eq "D"){
@@ -57,7 +51,7 @@ Function Set-MenuLanguage {
         $ML17 = "Home Ordner"
         $ML18 = "Home Ordner erstellen"
         $ML19 = "Home Ordner umbenennen"
-        $ML20 = ""
+        $ML20 = "Füge Benutzer der Gruppe hinzu"
     }
     # Prepare English text blocks
     ElseIf ($MenuLanguage -eq "E"){
@@ -80,14 +74,14 @@ Function Set-MenuLanguage {
         $ML17 = "Home Folders"
         $ML18 = "Create Home Folders"
         $ML19 = "Rename Home Folders"
-        $ML20 = ""
+        $ML20 = "Add Members to group"
     }
     Else {
         Write-Host "Something went wrong - unknown language"
     }
    
 
-   # Configure all the variables with the correct text blocks
+    # Configure all the variables with the correct text blocks
     Set-Variable -Name OutChosenLanguage -Value $ML01 -Scope global
     Set-Variable -Name StarterMenuTitle -Value $ML02 -Scope global   
     Set-Variable -Name StarterMenuText -Value $ML03 -Scope global   
@@ -106,16 +100,15 @@ Function Set-MenuLanguage {
     Set-Variable -Name RenameClassFolder -Value $ML16 -Scope global   
     Set-Variable -Name HomeFolderTitle -Value $ML17 -Scope global   
     Set-Variable -Name CreateHomeFolder -Value $ML18 -Scope global   
-    Set-Variable -Name RenameHomeFolder -Value $ML19 -Scope global   
-    Set-Variable -Name  -Value $ML20 -Scope global      
+    Set-Variable -Name RenameHomeFolder -Value $ML19 -Scope global
+    Set-variable -Name AddMembers -Value $ML20 -Scope global
 
 }
 
 ## Function Show-SelectorMenu
 # Shows the main menu of the language selector
 Function Show-StarterMenu {
-    cls
-    cls
+    Clear-Host
     Write-Host " "
     Write-Host "**************************************************************************"
     Write-Host "                                                                         "
@@ -155,13 +148,13 @@ Function Show-StarterMenu {
             Choose-AD-Accounts
         }
         ElseIf ($SelectedOption -eq 2) {
-           Choose-AD-Groups
+            Choose-AD-Groups
         }
         ElseIf ($SelectedOption -eq 3) {
-           Choose-ClassFolders
+            Choose-ClassFolders
         }
 		ElseIf ($SelectedOption -eq 4) {
-           Choose-HomeFolder
+            Choose-HomeFolder
         }
 }
 
@@ -189,14 +182,14 @@ Function Choose-AD-Accounts {
         # If X is selected, the guide will end the function
         # If something else was entered, the UI selection starts again
         If ($UISelection -in 1..2) {
-            If     ($UISelection -eq 1) {
-                foreach ($User in $Users) {
-					#variable für statement
-					Test-ADUser -Username $User
-  }
+            If($UISelection -eq 1) {
+                $script = $PSScriptRoot + "\Scripts\Accounts\Create_Accounts.ps1"
+                & $script
             }
             ElseIf ($UISelection -eq 2) {
-                Deactivate-AD-Accounts           }
+                $script = $PSScriptRoot + "\Scripts\Accounts\Disable_Accounts.ps1"
+                & $script       
+            }
         }
         ElseIf ($UISelection -eq "X") {
             Return
@@ -226,6 +219,7 @@ Function Choose-AD-Groups {
     Write-Host "                                                                         "
     Write-Host "                       [1]"$CreateGroup
     Write-Host "                       [2]"$DeleteGroup
+    Write-Host "                       [2]"$AddMembers                                   
     Write-Host "                                                                         "
     Write-Host "                       [X]"$ExitMenu
     Write-Host "                                                                         "
@@ -236,12 +230,18 @@ Function Choose-AD-Groups {
         # If a language is selected, the variable will be set
         # If X is selected, the guide will end the function
         # If something else was entered, the UI selection starts again
-        If ($RegionSelection -in 1..2) {
+        If ($RegionSelection -in 1..3) {
             If ($RegionSelection -eq 1) {
-
+                $script = $PSScriptRoot + "\Scripts\Groups\Create_Groups.ps1"
+                & $script
             }
             ElseIf ($RegionSelection -eq 2) {
-
+                $script = $PSScriptRoot + "\Scripts\Groups\Delete_Groups.ps1"
+                & $script
+            }
+            ElseIf ($RegionSelection -eq 3) {
+                $script = $PSScriptRoot + "\Scripts\Groups\Add_Members.ps1"
+                & $script
             }
         }
         ElseIf ($RegionSelection -eq "X") {
@@ -279,10 +279,12 @@ Function Choose-ClassFolders {
         # If something else was entered, the UI selection starts again
         If ($UISelection -in 1..2) {
             If ($UISelection -eq 1) {
-				
+                $script = $PSScriptRoot + "\Scripts\Folders\Create_Directorys.ps1"
+                & $script
             }
             ElseIf ($UISelection -eq 2) {
-				
+                $script = $PSScriptRoot + "\Scripts\Folders\Rename_Directory.ps1"
+                & $script
             }
         }
         ElseIf ($UISelection -eq "X") {
@@ -321,10 +323,12 @@ Function Choose-HomeFolder {
         # If something else was entered, the UI selection starts again
         If ($SetSelection -in 1..2) {
             If ($SetSelection -eq 1) {
-				
+                $script = $PSScriptRoot + "\Scripts\Homes\Create_Homes.ps1"
+                & $script
             }
             ElseIf ($SetSelection -eq 2) {
-				
+                $script = $PSScriptRoot + "\Scripts\Homes\Rename_Homes.ps1"
+                & $script
             }
         }
         ElseIf ($SetSelection -eq "X") {
@@ -357,13 +361,6 @@ Function End-LanguageSelection {
 # =============================================================================================================
 # ==================================          MAIN SCRIPT             =========================================
 # =============================================================================================================
-
-
-Set-Location C:\temp\m122
-
-Import-Module ActiveDirectory
-
-$Users = Import-Csv -Delimiter ";" -Path ".\schueler.csv"
 
 cls
 
@@ -410,5 +407,3 @@ Do {
 
     }
 While($true)
-
-
