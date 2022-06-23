@@ -2,7 +2,7 @@
 #
 # Scriptname:  Create_Groups.ps1
 #
-# Autor:       Kuratli Elia
+# Autor:       Kuratli Elia, Etienne Ammann
 # Date:        21.06.22
 #
 # Version:     2022.01 / 21.06.22 / Elia Kuratli
