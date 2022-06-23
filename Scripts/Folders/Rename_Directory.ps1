@@ -2,7 +2,7 @@
 #
 # Scriptname:  Rename_Directory.ps1
 #
-# Autor:       Kuratli Elia
+# Autor:       Kuratli Elia, Etiennson Ammann
 # Date:        21.06.22
 #
 # Version:     2022.01 / 21.06.22 / Elia Kuratli
@@ -16,18 +16,17 @@
 Set-Location C:\temp\m122\Klassenordner
 
 do{
-    Write-Host "Möchten Sie einen Ordner umbenennen? (Yes/No)"
-    $Eingabe = Read-Host
+    Write-Host "Wollen sie einen Ordner umbennen (Ja/Nein)"
+    $FiveHead = Read-Host
 
-    if($Eingabe -eq "Yes"){
-    Write-Host "Welchen Ordner möchtest du umbenennen?"
-    $Eingabe1 = Read-Host
-    Write-Host "Zu welchen Namen möchtest du den Ordnernamen ändern?"
-    $Eingabe2 = Read-Host
-    Rename-Item .\$Eingabe1 .\$Eingabe2 -Confirm: $false
-
-}else{
-    Write-Host "Programm schliesst sich in den nächsten 2 Sekunden"
-    Start-Sleep 2
-}
-}   until ($Eingabe -eq "No")
+    if($FiveHead -eq "Ja"){
+        Write-Host "Wie heisst der Ordner denn du umbennen willst?"
+        $FiveHead1 = Read-Host
+        Write-Host "Wie soll der neue Name des Ordners lauten?"
+        $FiveHead2 = Read-Host
+        Rename-Item .\$Fivehead1 .\$Fivehead2 -Confirm: $false
+    }else{
+        Write-Host "Hallo User, du wirst zurückgeleitet in 2 Sekunden"
+        Start-Sleep 2
+    }
+}   until ($Eingabe -eq "Nein")

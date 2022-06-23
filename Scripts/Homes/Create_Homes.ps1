@@ -18,7 +18,7 @@ Set-Location C:\temp\m122\Homes
 $Import = Import-Csv C:\temp\m122\Source\Schueler.csv -Delimiter ";" -Encoding UTF8
 
 foreach($User in $Import){
-$Username = $User.Benutzername.Replace('ä','ae').Replace('ö','oe').Replace('ü','ue').Replace('é','e').Replace('è','e')
+$Username = $User.Benutzername.Replace('é','e').Replace('è','e').Replace('ü','ue').Replace('ä','ae').Replace('ö','oe')
 $SAM = $Username
 $get = Get-ChildItem -Filter *
 

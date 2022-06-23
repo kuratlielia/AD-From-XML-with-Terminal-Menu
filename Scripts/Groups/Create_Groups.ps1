@@ -16,23 +16,26 @@
 
 $Import = Import-Csv C:\temp\m122\Source\Schueler.csv -Delimiter ";" -Encoding UTF8
 
-$Klasse1 = $Import.Klasse -split " "
-$Klasse2 = $Import.Klasse2 -split " "
+$Klasse_420 = $Import.Klasse -split " "
+$Klasse_6969696969696 = $Import.Klasse2 -split " "
 
-$get = Get-ADGroup -Filter *
+$BillGates = Get-ADGroup -Filter *
 
-$row += $Klasse1
-$row += $Klasse2
-$array = $row | Select-Object -Unique
+$Pig += $Klasse_420
+$Pig += $Klasse_6969696969696
+$Arrayson = $Pig | Select-Object -Unique
 
-foreach ($element in  $array){
-if ($element.Length -gt 0){
-    if ($get.name -eq "BZTF_"+$element){
+foreach ($Klasse in  $Arrayson){
+if ($Klasse.Length -gt 0){
+    if ($BillGates.name -eq "BZTF_"+$Klasse){
 
     } else {
-    New-ADGroup -Name BZTF_$element -SamAccountName BZTF_$element -GroupScope Global -Path "OU=Klassengruppen,OU=BZTF,DC=kuratli,DC=ch" -GroupCategory Distribution
+        New-ADGroup -Name BZTF_$Klasse -SamAccountName BZTF_$Klasse -GroupScope Global -Path "OU=Klassengruppen,OU=BZTF,DC=kuratli,DC=ch" -GroupCategory Distribution
+        Write-Host "AD Gruppe: BZTF_$Klasse wurde erstellt"
+
     }
 } else {
-Start-Sleep -Seconds 0
+    Start-Sleep -Seconds 2
+    Write-Host "Klasse ist leer"
 }
 }

@@ -15,20 +15,21 @@
 
 $Import = Import-Csv C:\temp\m122\Source\Schueler.csv -Delimiter ";" -Encoding UTF8
 
-$Klasse1 = $import.Klasse -split " "
-$Klasse2 = $import.Klasse2 -split " "
+$Klasse_911 = $Import.Klasse -split " "
+$Klasse_88 = $Import.Klasse2 -split " "
 
-$get = Get-ADGroup -Filter *
+$ElonMusk = Get-ADGroup -Filter *
 
-$row += $Klasse1
-$row += $Klasse2
-$array = $row |Select-Object -Unique
+$Pig += $Klasse_911
+$Pig += $Klasse_88
+$Arrayson = $Pig | Select-Object -Unique
 
-foreach ($element in  $array){
-    if ($element.Length -gt 0){
-        if ($get.name -eq "BZTF_"+$element){ 
-            $name = "BZTF_"+$element
+foreach ($Bob in  $Arrayson){
+    if ($Bob.Length -gt 0){
+        if ($ElonMusk.name -eq "BZTF_"+$Bob){ 
+            $name = "BZTF_"+$Bob
             Remove-ADGroup -Identity $name -Confirm:$false
+            Write-Host "AD Gruppe : BZTF_$Bob wurde gelöscht"
         } else {
         
         }
