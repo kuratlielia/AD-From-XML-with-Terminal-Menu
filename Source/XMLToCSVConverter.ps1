@@ -14,7 +14,7 @@
 ###############################################################
 
 # Input File
-[xml]$inputFile = Get-Content "C:\Users\eliar\Desktop\AD-From-XML-with-Terminal-Menu\Source\Schueler.xml"
+[xml]$inputFile = Get-Content "C:\temp\m122\Source\Schueler.xml"
 
 # File wird in CSV Konvertiert
-$inputFile.Objs.Obj.MS.S | ConvertTo-Csv -NoTypeInformation -Delimiter ";" | Set-Content "C:\Users\eliar\Desktop\AD-From-XML-with-Terminal-Menu\Source\Sample.csv" -Encoding UTF8
+$inputFile.Objs.Obj.MS.S | ConvertTo-Csv -NoTypeInformation -Delimiter ";" | Set-Content "C:\temp\m122\Source\Sample.csv" -Encoding UTF8
