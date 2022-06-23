@@ -34,7 +34,7 @@ foreach ($User in $Import) {
   $Displayname = $Username
   $Firstname = $User.Vorname
   $Lastname = $User.Name
-  $OU = "OU=Users,OU=BZTF,DC=kuratli,DC=ch"
+  $OU = "OU=Lernende,OU=BZTF,DC=kuratli,DC=ch"
   $UPN = $Username + "@bztf.ch"
   $Password = (ConvertTo-SecureString $password -AsPlainText -Force)
 

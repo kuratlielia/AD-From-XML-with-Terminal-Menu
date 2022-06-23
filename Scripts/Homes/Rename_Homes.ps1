@@ -16,7 +16,7 @@
 Set-Location C:\temp\m122\Homes
 
 do{
-Write-Host "Möchten Sie einen Ordner umbenennen? (Yes/No)"
+Write-Host "Möchten Sie einen Ordner umbenennen? (Ja/Nein)"
 $Eingabe = Read-Host
 if($Eingabe -eq "Yes"){
     Write-Host "Welchen Ordner möchtest du umbenennen?"

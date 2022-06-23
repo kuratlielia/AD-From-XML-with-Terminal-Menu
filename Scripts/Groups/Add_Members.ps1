@@ -13,8 +13,6 @@
 #
 ###############################################################
 
-Set-Location C:\temp\m122
-
 $Import = Import-Csv C:\temp\m122\Source\Schueler.csv -Delimiter ";" -Encoding UTF8
 
 foreach($element in $Import){

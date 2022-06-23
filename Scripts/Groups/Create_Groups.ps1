@@ -30,7 +30,7 @@ if ($element.Length -gt 0){
     if ($get.name -eq "BZTF_"+$element){
 
     } else {
-    New-ADGroup -Name BZTF_$element -SamAccountName BZTF_$element -GroupScope Global -Path "OU=Groups,OU=BZTF,DC=kuratli,DC=ch" -GroupCategory Distribution
+    New-ADGroup -Name BZTF_$element -SamAccountName BZTF_$element -GroupScope Global -Path "OU=Klassengruppen,OU=BZTF,DC=kuratli,DC=ch" -GroupCategory Distribution
     }
 } else {
 Start-Sleep -Seconds 0
