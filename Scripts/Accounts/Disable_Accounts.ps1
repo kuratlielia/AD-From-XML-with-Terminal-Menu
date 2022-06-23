@@ -13,13 +13,11 @@
 #
 ###############################################################
 
-Import-Module ActiveDirectory
-Set-Location C:\temp\m122
-
 $getaduser = Get-ADUser -Filter *
 
-$import = Import-Csv .\Source\Schueler.csv -Delimiter ";" -Encoding UTF8
-$Username = $import.vorname
+$Import = Import-Csv C:\temp\m122\Source\Schueler.csv -Delimiter ";" -Encoding UTF8
+
+$Username = $Import.vorname
 
 foreach ($User in $getaduser) {
 $givenname = $user.givenname

@@ -13,7 +13,6 @@
 #
 ###############################################################
 
-Import-Module ActiveDirectory
 Set-Location C:\temp\m122\Homes
 
 do{

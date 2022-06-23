@@ -13,14 +13,11 @@
 #
 ###############################################################
 
-Import-Module ActiveDirectory
-Set-Location C:\M122Projekt\
+$Import = Import-Csv C:\temp\m122\Source\Schueler.csv -Delimiter ";" -Encoding UTF8
 
-$import = Import-Csv .\Source\Schueler.csv -Delimiter ";"
+$Klasse1 = $Import.Klasse -split " "
 
-$Klasse1 = $import.Klasse -split " "
-
-$Klasse2 = $import.Klasse2 -split " "
+$Klasse2 = $Import.Klasse2 -split " "
 
 $row += $Klasse1
 $row += $Klasse2
@@ -34,7 +31,7 @@ foreach ($element in  $array){
     if ($element.Length -gt 0){
         if ($get.name -eq $element){ 
         } else {
-            New-Item -Name $element -Path C:\M122Projekt\Klassenordner\ -ItemType Directory | Out-Null
+            New-Item -Name $element -Path C:\temp\m122\Klassenordner\ -ItemType Directory | Out-Null
         }
 }else{
     Start-Sleep -Seconds 0

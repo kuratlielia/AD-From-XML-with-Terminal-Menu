@@ -13,12 +13,11 @@
 #
 ###############################################################
 
-Import-Module ActiveDirectory
 Set-Location C:\temp\m122
 
-$import = Import-Csv .\Source\Schueler.csv -Delimiter ";" -Encoding UTF8
+$Import = Import-Csv C:\temp\m122\Source\Schueler.csv -Delimiter ";" -Encoding UTF8
 
-foreach($element in $import){
+foreach($element in $Import){
     
     $Username = $element.Benutzername
     if($Username.Length -gt 20) {

@@ -13,12 +13,11 @@
 #
 ###############################################################
 
-Import-Module ActiveDirectory
 Set-Location C:\temp\m122\Homes
 
-$Users = Import-Csv .\Source\Schueler.csv -Delimiter ";"
+$Import = Import-Csv C:\temp\m122\Source\Schueler.csv -Delimiter ";" -Encoding UTF8
 
-foreach($User in $Users){
+foreach($User in $Import){
 $Username = $User.Benutzername.Replace('ä','ae').Replace('ö','oe').Replace('ü','ue').Replace('é','e').Replace('è','e')
 $SAM = $Username
 $get = Get-ChildItem -Filter *

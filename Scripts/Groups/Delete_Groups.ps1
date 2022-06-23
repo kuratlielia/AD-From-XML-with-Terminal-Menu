@@ -13,10 +13,7 @@
 #
 ###############################################################
 
-Import-Module ActiveDirectory
-Set-Location C:\temp\m122\
-
-$import = Import-Csv .\Source\Schueler.csv -Delimiter ";"
+$Import = Import-Csv C:\temp\m122\Source\Schueler.csv -Delimiter ";" -Encoding UTF8
 
 $Klasse1 = $import.Klasse -split " "
 $Klasse2 = $import.Klasse2 -split " "

@@ -13,10 +13,7 @@
 #
 ###############################################################
 
-Import-Module ActiveDirectory
-Set-Location C:\temp\m122
-
-$Users = Import-Csv -Delimiter ";" -Path ".\Source\Schueler.csv"
+$Import = Import-Csv C:\temp\m122\Source\Schueler.csv -Delimiter ";" -Encoding UTF8
 
 $password = "bztf.001"
 
@@ -28,7 +25,7 @@ function Test-ADUser {
     $null -ne ([ADSISearcher] "(sAMAccountName=$SAM)").FindOne()
 }
 
-foreach ($User in $Users) {
+foreach ($User in $Import) {
   $Username = $User.Benutzername.Replace('ä','ae').Replace('ö','oe').Replace('ü','ue').Replace('é','e').Replace('è','e')
   if($Username.Length -gt 20) {
     $Username = $Username.subString(0, 20)

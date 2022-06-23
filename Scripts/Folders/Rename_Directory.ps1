@@ -13,8 +13,7 @@
 #
 ###############################################################
 
-Import-Module ActiveDirectory
-Set-Location C:\M122Projekt\Klassenordner
+Set-Location C:\temp\m122\Klassenordner
 
 do{
     Write-Host "Möchten Sie einen Ordner umbenennen? (Yes/No)"
