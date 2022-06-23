@@ -13,6 +13,7 @@
 #
 ###############################################################
 
+# Import CSV
 $Import = Import-Csv C:\temp\m122\Source\Schueler.csv -Delimiter ";" -Encoding UTF8
 
 foreach($Benutzer in $Import){
@@ -22,5 +23,6 @@ foreach($Benutzer in $Import){
         $Username = $Username.subString(0, 30)
     }
     $KlassenName = "BZTF_" + $Benutzer.Klasse
+    # Member werden der Gruppe hinzugefügt
     Add-ADGroupMember -Identity $KlassenName -Members $Username
 }

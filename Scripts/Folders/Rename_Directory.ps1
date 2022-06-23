@@ -13,8 +13,10 @@
 #
 ###############################################################
 
+# Location wird gesetzt
 Set-Location C:\temp\m122\Klassenordner
 
+# do schlaufe mit Eingaben
 do{
     Write-Host "Wollen sie einen Ordner umbennen (Ja/Nein)"
     $FiveHead = Read-Host
