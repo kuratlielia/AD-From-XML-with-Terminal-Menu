@@ -219,7 +219,7 @@ Function Choose-AD-Groups {
     Write-Host "                                                                         "
     Write-Host "                       [1]"$CreateGroup
     Write-Host "                       [2]"$DeleteGroup
-    Write-Host "                       [2]"$AddMembers                                   
+    Write-Host "                       [3]"$AddMembers                                   
     Write-Host "                                                                         "
     Write-Host "                       [X]"$ExitMenu
     Write-Host "                                                                         "
